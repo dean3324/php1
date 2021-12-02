@@ -102,7 +102,7 @@
                                             <a href="#"><?php if(isset($_SESSION['name'])) { echo $_SESSION['name']; }?></a>
                                             <a href="#">  /  </a>
                                             <a href="_logout.php" id="loginBtn">Logout</a>
-
+                                            <a href="_signout.php">/ 회원탈퇴</a>
                                         <?php } else { ?>
 
                                             <a href="login.php" id="loginBtn">Login</a>

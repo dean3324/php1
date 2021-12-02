@@ -14,7 +14,7 @@
     $pw = $_POST["pw"];
 
     // select : 조회, insert : 삽입 , delete :삭제 , update :변경
-    $sql = "select * from `user` where id='$id' and pw='$pw'";
+    $sql = "select * from `user` where id='$id' and pw='$pw' and del_flg = 0";
     $result = mysqli_query($conn, $sql);
     $row = $result->num_rows; //결과값을 정수로 변환 1
     if($row >0 ) { //값이 있다면,
