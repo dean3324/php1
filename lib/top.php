@@ -10,7 +10,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>Code Memo</title>
+    <title>Sample</title>
 
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.ico">
@@ -66,7 +66,7 @@
                                             <li><a href="index.php">Home</a></li>
                                             <li><a href="albums-store.php">Albums</a></li>
                                             <li><a href="event.php">Events</a></li>
-                                            <li><a href="blog.php">News</a></li>
+                                            <li><a href="blog.php">Blog</a></li>
                                             <li><a href="contact.php">Contact</a></li>
                                             <li><a href="elements.php">Elements</a></li>
                                             <li><a href="login.php">Login</a></li>
@@ -99,15 +99,18 @@
                                     <!-- Login/Register -->
                                     <div class="login-register-btn mr-50">
                                         <?php if(isset($_SESSION['id'])) { ?>
-                                            <a href="user.php"><?php if(isset($_SESSION['name'])) { echo $_SESSION['name']; }?></a>
+                                            
+                                            <a href="user.php"><?=$_SESSION['name']?></a>
                                             <a href="#">  /  </a>
                                             <a href="_logout.php" id="loginBtn">Logout</a>
                                             <a href="user.php">/ 회원정보</a>
+
                                         <?php } else { ?>
 
                                             <a href="login.php" id="loginBtn">Login</a>
                                             <a href="#">  /  </a>
                                             <a href="join.php" id="loginBtn"> Register</a>
+                                       
                                         <?php } ?>
                                     </div>
 

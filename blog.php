@@ -1,10 +1,12 @@
 <?php require ('lib/top.php'); ?>
 
+<?php require ('_blog1page.php'); ?>
+
     <!-- ##### Breadcumb Area Start ##### -->
     <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/breadcumb3.jpg);">
         <div class="bradcumbContent">
             <p>See what’s new</p>
-            <h2>News</h2>
+            <h2>Blog</h2>
         </div>
     </section>
     <!-- ##### Breadcumb Area End ##### -->
@@ -15,86 +17,73 @@
             <div class="row">
                 <div class="col-12 col-lg-9">
 
-                    <!-- Single Post Start -->
+                <?php   
+                      if (isset($_SESSION["id"])) {
+                ?>
+
+                <button class="btn btn-secondary" onclick="location.href='blog1write.php'">Write</button>
+                <hr>
+                
+                <?php }
+                
+                ?>    
+
+                <?php
+                        foreach($result as $blog) {
+                ?>
+
+                <!-- Single Post Start -->
                     <div class="single-blog-post mb-100 wow fadeInUp" data-wow-delay="100ms">
                         <!-- Post Thumb -->
                         <div class="blog-post-thumb mt-30">
-                            <a href="#"><img src="img/bg-img/blog1.jpg" alt=""></a>
+                            <a href="#"><img src="img/bg-img/blog1.jpg" alt="blog image"></a>
                             <!-- Post Date -->
                             <div class="post-date">
-                                <span>15</span>
-                                <span>June ‘18</span>
+                <?php
+                                $day = date("d", strtotime($blog['reg_date']));
+                                $month = date("F", strtotime($blog['reg_date']));
+                                $year = date("y", strtotime($blog['reg_date']));
+                ?>
+                                <span><?=$year?></span>
+                                <span><?=$month?> ‘<?=$year?></span>
                             </div>
                         </div>
 
                         <!-- Blog Content -->
                         <div class="blog-content">
                             <!-- Post Title -->
-                            <a href="#" class="post-title">5 Festivals you shouldn’t miss this summer</a>
+                            <a href="#" class="post-title"><?=$blog['title']?></a>
                             <!-- Post Meta -->
                             <div class="post-meta d-flex mb-30">
-                                <p class="post-author">By<a href="#"> Admin</a></p>
-                                <p class="tags">in<a href="#"> Events</a></p>
-                                <p class="tags"><a href="#">2 Comments</a></p>
+                                <p class="post-author">By<a href="#"><?=$blog['name']?></a></p>
+                                <p class="tags">in <a href="#"><?=$blog['category']?></a></p>
+                             
                             </div>
                             <!-- Post Excerpt -->
-                            <p>Pellentesque sit amet velit a libero viverra porta non eu justo. Vivamus mollis metus sem, ac sodales dui lobortis. Pellentesque sit amet velit a libero viverra porta non eu justo. Vivamus mollis metus sem, ac sodales dui lobortis.</p>
+                            <p><?=$blog['content']?></p>
+                            <hr>
+
+                            <!-- 수정 삭제 버튼 -->
+                <?php
+                        if(isset($_SESSION["id"])) {
+                            if($_SESSION["id"] == $blog["id"]) { 
+                ?> 
+
+                            <button class="btn btn-primary" onclick="location.href='blog1mod.php?no=<?=$blog['no']?>'">수정</button>
+                            <button class="btn btn-warning" onclick="location.href='blog1delete.php?no=<?=$blog['no']?>'">삭제</button>
+                <?php   
+                            } 
+                        } 
+                ?>            
                         </div>
                     </div>
+                    <!-- single post end -->
 
-                    <!-- Single Post Start -->
-                    <div class="single-blog-post mb-100 wow fadeInUp" data-wow-delay="100ms">
-                        <!-- Post Thumb -->
-                        <div class="blog-post-thumb mt-30">
-                            <a href="#"><img src="img/bg-img/blog2.jpg" alt=""></a>
-                            <!-- Post Date -->
-                            <div class="post-date">
-                                <span>15</span>
-                                <span>June ‘18</span>
-                            </div>
-                        </div>
 
-                        <!-- Blog Content -->
-                        <div class="blog-content">
-                            <!-- Post Title -->
-                            <a href="#" class="post-title">5 Festivals you shouldn’t miss this summer</a>
-                            <!-- Post Meta -->
-                            <div class="post-meta d-flex mb-30">
-                                <p class="post-author">By<a href="#"> Admin</a></p>
-                                <p class="tags">in<a href="#"> Events</a></p>
-                                <p class="tags"><a href="#">2 Comments</a></p>
-                            </div>
-                            <!-- Post Excerpt -->
-                            <p>Pellentesque sit amet velit a libero viverra porta non eu justo. Vivamus mollis metus sem, ac sodales dui lobortis. Pellentesque sit amet velit a libero viverra porta non eu justo. Vivamus mollis metus sem, ac sodales dui lobortis.</p>
-                        </div>
-                    </div>
 
-                    <!-- Single Post Start -->
-                    <div class="single-blog-post mb-100 wow fadeInUp" data-wow-delay="100ms">
-                        <!-- Post Thumb -->
-                        <div class="blog-post-thumb mt-30">
-                            <a href="#"><img src="img/bg-img/blog3.jpg" alt=""></a>
-                            <!-- Post Date -->
-                            <div class="post-date">
-                                <span>15</span>
-                                <span>June ‘18</span>
-                            </div>
-                        </div>
+             
+            <?php } ?>
 
-                        <!-- Blog Content -->
-                        <div class="blog-content">
-                            <!-- Post Title -->
-                            <a href="#" class="post-title">5 Festivals you shouldn’t miss this summer</a>
-                            <!-- Post Meta -->
-                            <div class="post-meta d-flex mb-30">
-                                <p class="post-author">By<a href="#"> Admin</a></p>
-                                <p class="tags">in<a href="#"> Events</a></p>
-                                <p class="tags"><a href="#">2 Comments</a></p>
-                            </div>
-                            <!-- Post Excerpt -->
-                            <p>Pellentesque sit amet velit a libero viverra porta non eu justo. Vivamus mollis metus sem, ac sodales dui lobortis. Pellentesque sit amet velit a libero viverra porta non eu justo. Vivamus mollis metus sem, ac sodales dui lobortis.</p>
-                        </div>
-                    </div>
 
                     <!-- Pagination -->
                     <div class="oneMusic-pagination-area wow fadeInUp" data-wow-delay="300ms">

@@ -46,7 +46,7 @@
                                     <input name="address" type="text" class="form-control" aria-describedby="emailHelp" placeholder="Enter your Adress" value="<?=$_SESSION['address'] ?>">
                                 </div>
                    
-                                <button type="submit" class="btn oneMusic-btn mt-30">수정</button>
+                                <button type="submit" class="btn oneMusic-btn mt-30">정보수정</button>
                              
                             </form>
                         </div>

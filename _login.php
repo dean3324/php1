@@ -8,6 +8,7 @@
 </head>
 <body>
 <?php
+   
     require('_conn.php');
 
     $id = $_POST["id"];
@@ -21,6 +22,7 @@
         //로그인 처리 
         require('_loginok.php');
         echo "<script>window.alert('로그인 완료!');location.href='index.php'</script>";
+        
     }   else {
         echo "<script>window.alert('로그인 실패! 아이디, 비밀번호를 확인해 주세요.');location.href='index.php'</script>";
     }

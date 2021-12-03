@@ -29,10 +29,12 @@
                                     <label for="exampleInputPassword1" class="text-danger">* Password</label>
                                     <input name="pw" type="password" class="form-control" id="exampleInputPassword1" placeholder="* Enter your Password">
                                 </div>
+
                                 <div class="form-group">
                                     <label for="exampleInputPassword1" class="text-danger">* Password Check</label>
                                     <input name="pwc" type="password" class="form-control" placeholder="* Enter your Password once more">
                                 </div>
+                                
                                 <div class="form-group">
                                     <label for="exampleInputEmail1" class="text-danger">* Name</label>
                                     <input name="name" type="text" class="form-control" aria-describedby="emailHelp" placeholder="* Enter your Name">
