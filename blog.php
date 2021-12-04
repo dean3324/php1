@@ -40,9 +40,18 @@
                             <!-- Post Date -->
                             <div class="post-date">
                 <?php
+                                if($blog['mod_date'] != null){
+
+                                    $day = date("d", strtotime($blog['mod_date']));
+                                    $month = date("F", strtotime($blog['mod_date']));
+                                    $year = date("y", strtotime($blog['mod_date']));
+    
+                                } else {    
                                 $day = date("d", strtotime($blog['reg_date']));
                                 $month = date("F", strtotime($blog['reg_date']));
                                 $year = date("y", strtotime($blog['reg_date']));
+                                }
+                                
                 ?>
                                 <span><?=$year?></span>
                                 <span><?=$month?> ‘<?=$year?></span>
@@ -55,7 +64,7 @@
                             <a href="#" class="post-title"><?=$blog['title']?></a>
                             <!-- Post Meta -->
                             <div class="post-meta d-flex mb-30">
-                                <p class="post-author">By<a href="#"><?=$blog['name']?></a></p>
+                                <p class="post-author">By <a href="#"><?=$blog['name']?></a></p>
                                 <p class="tags">in <a href="#"><?=$blog['category']?></a></p>
                              
                             </div>
@@ -70,7 +79,7 @@
                 ?> 
 
                             <button class="btn btn-primary" onclick="location.href='blog1mod.php?no=<?=$blog['no']?>'">수정</button>
-                            <button class="btn btn-warning" onclick="location.href='blog1delete.php?no=<?=$blog['no']?>'">삭제</button>
+                            <button class="btn btn-warning" onclick="location.href='_blog1delete.php?no=<?=$blog['no']?>'">삭제</button>
                 <?php   
                             } 
                         } 

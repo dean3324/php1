@@ -8,7 +8,7 @@
 </head>
 <body>
 <?php
-
+         
     //회원가입
     require('_conn.php');
 

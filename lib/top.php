@@ -90,7 +90,7 @@
                                         </ul>
                                     </li>
                                     <li><a href="event.php">Events</a></li>
-                                    <li><a href="blog.php">News</a></li>
+                                    <li><a href="blog.php">Blog</a></li>
                                     <li><a href="contact.php">Contact</a></li>
                                 </ul>
 
